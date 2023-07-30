@@ -2,13 +2,12 @@
 // API -> https://64b2e33138e74e386d55b072.mockapi.io/api/hanover
 
 // Adding developer name
-const dev = (document.getElementById('iits-developer').innerHTML =
-  "Maksudur Sium");
+const dev = (document.getElementById('iits-developer').innerHTML ="Maksudur Sium");
 const adminSection = document.querySelector("#iits-adminSection");
 const cartCounterElement = document.getElementById("iits-cart_counter");
 
 // Check if the cart count is available in local storage and update the cart counter
-let cartCounter = parseInt(localStorage.getItem("cartCount")) || 0;
+let cartCounter = parseInt(localStorage.getItem("iits-cart")) || 0;
 updateCounterDisplay();
 
 // Hiding admin section for regular user
@@ -54,6 +53,7 @@ fetch("https://64b2e33138e74e386d55b072.mockapi.io/api/hanover", requestOptions)
   .catch((error) => console.log("error", error));
 
 // Cart button code here
+
 document.querySelector("#iits-items").addEventListener("click", (event) => {
   const target = event.target;
 
@@ -77,8 +77,9 @@ function updateCounterDisplay() {
 }
 
 function saveCartCountToLocalStorage() {
-  localStorage.setItem("cartCount", cartCounter);
+  localStorage.setItem("iits-cart", cartCounter);
 }
+
 
 // Add new item form handling
 const addNewForm = document.getElementById("iits-addNewForm");
