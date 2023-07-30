@@ -80,6 +80,40 @@ function saveCartCountToLocalStorage() {
   localStorage.setItem("cartCount", cartCounter);
 }
 
+// Add new item form handling
+const addNewForm = document.getElementById("iits-addNewForm");
+
+addNewForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Get form field values
+  const name = document.getElementById("name").value.trim();
+  const pic = document.getElementById("pic").value.trim();
+  const desc = document.getElementById("desc").value.trim();
+  const typeItem = document.getElementById("typeItem").value;
+
+  // Validate form fields
+  if (!name || !pic || !desc || typeItem === "invalid") {
+    alert("Please fill all fields correctly.");
+    return;
+  }
+
+  // Create a new item object
+  const newItem = {
+    name,
+    url: pic, // Assuming "url" is the correct field for thumbnail image URL
+    desc,
+    type: typeItem,
+  };
+
+  // Add the new item to the UI
+  showItems(newItem);
+
+  // Clear the form fields
+  addNewForm.reset();
+});
+
+
 // New function to show all items
 function showItems(item) {
   const itemElement = document.createElement("div");
