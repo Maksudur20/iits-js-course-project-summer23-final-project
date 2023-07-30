@@ -113,7 +113,6 @@ addNewForm.addEventListener("submit", (event) => {
   addNewForm.reset();
 });
 
-
 // New function to show all items
 function showItems(item) {
   const itemElement = document.createElement("div");
